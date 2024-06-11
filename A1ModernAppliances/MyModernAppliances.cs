@@ -17,7 +17,7 @@ namespace ModernAppliances
         public override void Checkout()
         {
             // Write "Enter the item number of an appliance: "
-            Console.Write("Enter the item number of an appliance: ");
+            Console.WriteLine("Enter the item number of an appliance: ");
             // Create long variable to hold item number
             long itemNumber;
             // Get user input as string and assign to variable.
@@ -44,11 +44,11 @@ namespace ModernAppliances
             // Write "No appliances found with that item number."
             if (foundAppliance == null)
             {
-                Console.WriteLine("No appliances found with that item number.");
+                Console.WriteLine($"No appliances found with that item number.\n");
             }
             else if (foundAppliance.IsAvailable == false)
             {
-                Console.WriteLine("The appliance is not available to be checked out.");
+                Console.WriteLine($"The appliance is not available to be checked out.\n");
             }
             else 
             {
