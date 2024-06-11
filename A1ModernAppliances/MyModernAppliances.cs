@@ -53,7 +53,7 @@ namespace ModernAppliances
             else 
             {
                 foundAppliance.Checkout();
-                Console.WriteLine($"\n");
+                Console.WriteLine($"Appliance \"{foundAppliance.ItemNumber}\" has been checked out.\n");
             }
 
             // Otherwise (appliance was found)
