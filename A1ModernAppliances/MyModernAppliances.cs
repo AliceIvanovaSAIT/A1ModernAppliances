@@ -192,18 +192,24 @@ namespace ModernAppliances
         /// </summary>
         public override void DisplayMicrowaves()
         {
-            // Write "Possible options:"
-
-            // Write "0 - Any"
-            // Write "1 - Kitchen"
-            // Write "2 - Work site"
-
-            // Write "Enter room type:"
-
+            Console.Write("Room where the microwave will be installed: K (kitchen) or W (work site):\n    ");
+            
+            string userInput = Console.ReadLine();
             // Get user input as string and assign to variable
 
             // Create character variable that holds room type
-
+            if (userInput == "1")
+            {
+                userInput = "K";
+            }
+            else if (userInput == "2")
+            {
+                userInput = "W";
+            }
+            else 
+            {
+                Console.WriteLine("Invalid option.");
+            }
             // Test input is "0"
                 // Assign 'A' to room type variable
             // Test input is "1"
