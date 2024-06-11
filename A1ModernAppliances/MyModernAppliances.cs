@@ -249,7 +249,7 @@ namespace ModernAppliances
                 }
             }
 
-            Console.WriteLine("Matching microwaves:\n");
+            Console.WriteLine("\nMatching microwaves:\n");
             DisplayAppliancesFromList(found, 0);
             // Loop through Appliances
             // Test current appliance is Microwave
