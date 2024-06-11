@@ -137,64 +137,74 @@ namespace ModernAppliances
         /// <param name="voltage">Vacuum voltage (or 0 for any voltage)</param>
         public override void DisplayVacuums()
         {
-            // Write "Possible options:"
+            Console.WriteLine("Possible options:");
+            Console.WriteLine("0 - Any");
+            Console.WriteLine("1 - Residential");
+            Console.WriteLine("2 - Commercial");
+            Console.WriteLine("Enter grade:");
 
-            // Write "0 - Any"
-            // Write "1 - Residential"
-            // Write "2 - Commercial"
+            string userInput = Console.ReadLine();
+            string grade;
 
-            // Write "Enter grade:"
+            if (userInput == "0")
+            {
+                grade = "Any";
+            }
+            else if (userInput == "1")
+            {
+                grade = "Residential";
+            }
+            else if (userInput == "2")
+            {
+                grade = "Commercial";
+            }
+            else
+            {
+                Console.WriteLine("Invalid option.");
+                return;
+            }
 
-            // Get user input as string and assign to variable
+            Console.WriteLine("Possible options:");
+            Console.WriteLine("0 - Any");
+            Console.WriteLine("1 - 18 Volt");
+            Console.WriteLine("2 - 24 Volt");
+            Console.WriteLine("Enter voltage:");
 
-            // Create grade variable to hold grade to find (Any, Residential, or Commercial)
+            userInput = Console.ReadLine();
+            int voltage;
 
-            // Test input is "0"
-                // Assign "Any" to grade
-            // Test input is "1"
-                // Assign "Residential" to grade
-            // Test input is "2"
-                // Assign "Commercial" to grade
-            // Otherwise (input is something else)
-                // Write "Invalid option."
+            if (userInput == "0")
+            {
+                voltage = 0;
+            }
+            else if (userInput == "1")
+            {
+                voltage = 18;
+            }
+            else if (userInput == "2")
+            {
+                voltage = 24;
+            }
+            else
+            {
+                Console.WriteLine("Invalid option.");
+                return;
+            }
 
-                // Return to calling (previous) method
-                // return;
+            List<Appliance> found = new List<Appliance>();
 
-            // Write "Possible options:"
+            foreach (var appliance in Appliances)
+            {
+                if (appliance is Vacuum vacuum)
+                {
+                    if ((grade == "Any" || vacuum.Grade == grade) && (voltage == 0 || vacuum.BatteryVoltage == voltage))
+                    {
+                        found.Add(appliance);
+                    }
+                }
+            }
 
-            // Write "0 - Any"
-            // Write "1 - 18 Volt"
-            // Write "2 - 24 Volt"
-
-            // Write "Enter voltage:"
-
-            // Get user input as string
-            // Create variable to hold voltage
-
-            // Test input is "0"
-                // Assign 0 to voltage
-            // Test input is "1"
-                // Assign 18 to voltage
-            // Test input is "2"
-                // Assign 24 to voltage
-            // Otherwise
-                // Write "Invalid option."
-                // Return to calling (previous) method
-                // return;
-
-            // Create found variable to hold list of found appliances.
-
-            // Loop through Appliances
-                // Check if current appliance is vacuum
-                    // Down cast current Appliance to Vacuum object
-                    // Vacuum vacuum = (Vacuum)appliance;
-
-                    // Test grade is "Any" or grade is equal to current vacuum grade and voltage is 0 or voltage is equal to current vacuum voltage
-                        // Add current appliance in list to found list
-
-            // Display found appliances
-            // DisplayAppliancesFromList(found, 0);
+            DisplayAppliancesFromList(found, 0);
         }
 
         /// <summary>
