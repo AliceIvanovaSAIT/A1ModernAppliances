@@ -15,6 +15,8 @@
             {
                 modernAppliances.DisplayMenu();
 
+                Console.Write($"Enter option:\n    ");
+                
                 option = Enum.Parse<ModernAppliances.Options>(Console.ReadLine());
                 
                 switch (option)
