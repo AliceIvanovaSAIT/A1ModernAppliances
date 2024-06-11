@@ -234,7 +234,7 @@ namespace ModernAppliances
             {
                 if (appliance is Microwave microwave)
                 {
-                    if (userInput == "k" && microwave.RoomTypeDisplay == "Kithen")
+                    if (userInput == "k" && microwave.RoomTypeDisplay == "Kitchen")
                     {
                         found.Add(appliance);
                     }
@@ -249,8 +249,12 @@ namespace ModernAppliances
                 }
             }
 
-            Console.WriteLine("\nMatching microwaves:\n");
-            DisplayAppliancesFromList(found, 0);
+            if (found.Count > 0)
+            {
+                Console.WriteLine("\nMatching microwaves:\n");
+                DisplayAppliancesFromList(found, 0);
+            }
+            
             // Loop through Appliances
             // Test current appliance is Microwave
             // Down cast Appliance to Microwave
