@@ -42,6 +42,18 @@ namespace ModernAppliances
 
             // Test appliance was not found (foundAppliance is null)
             // Write "No appliances found with that item number."
+            if (foundAppliance == null)
+            {
+                Console.WriteLine("No appliances found with that item number.");
+            }
+            else if (foundAppliance.IsAvailable == false)
+            {
+                Console.WriteLine("The appliance is not available to be checked out.");
+            }
+            else 
+            {
+                foundAppliance.Checkout();
+            }
 
             // Otherwise (appliance was found)
             // Test found appliance is available
