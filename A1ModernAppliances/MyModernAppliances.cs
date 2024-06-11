@@ -211,18 +211,24 @@ namespace ModernAppliances
                 Console.WriteLine("Invalid option.");
             }
             // Test input is "0"
-                // Assign 'A' to room type variable
+            // Assign 'A' to room type variable
             // Test input is "1"
-                // Assign 'K' to room type variable
+            // Assign 'K' to room type variable
             // Test input is "2"
-                // Assign 'W' to room type variable
+            // Assign 'W' to room type variable
             // Otherwise (input is something else)
-                // Write "Invalid option."
-                // Return to calling method
-                // return;
+            // Write "Invalid option."
+            // Return to calling method
+            // return;
 
+            List<Appliance> foundAppliances = new List<Appliance>();
             // Create variable that holds list of 'found' appliances
 
+            foreach (Appliance appliance in Appliances) 
+            {
+                if (appliance.Microwave)
+                { }
+            }
             // Loop through Appliances
                 // Test current appliance is Microwave
                     // Down cast Appliance to Microwave
