@@ -1,6 +1,7 @@
 ﻿using ModernAppliances.Entities;
 using ModernAppliances.Entities.Abstract;
 using ModernAppliances.Helpers;
+using System;
 
 namespace ModernAppliances
 {
@@ -221,13 +222,17 @@ namespace ModernAppliances
             // Return to calling method
             // return;
 
-            List<Appliance> foundAppliances = new List<Appliance>();
+            List<Appliance> found = new List<Appliance>();
             // Create variable that holds list of 'found' appliances
 
             foreach (Appliance appliance in Appliances) 
             {
-                if (appliance is Microwave )
-                { }
+                if (appliance is Microwave microwave)
+                {
+                    if (userInput ==)
+                    { }
+                    
+                }
             }
             // Loop through Appliances
                 // Test current appliance is Microwave
