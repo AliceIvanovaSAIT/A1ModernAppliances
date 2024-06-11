@@ -226,7 +226,7 @@ namespace ModernAppliances
 
             foreach (Appliance appliance in Appliances) 
             {
-                if (appliance.Microwave)
+                if (appliance is Microwave )
                 { }
             }
             // Loop through Appliances
