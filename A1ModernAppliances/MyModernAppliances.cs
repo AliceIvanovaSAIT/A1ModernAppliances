@@ -17,31 +17,39 @@ namespace ModernAppliances
         public override void Checkout()
         {
             // Write "Enter the item number of an appliance: "
-
+            Console.Write("Enter the item number of an appliance: ");
             // Create long variable to hold item number
-
+            long itemNumber;
             // Get user input as string and assign to variable.
             // Convert user input from string to long and store as item number variable.
-
+            itemNumber = (long)Convert.ToDouble(Console.ReadLine());
             // Create 'foundAppliance' variable to hold appliance with item number
             // Assign null to foundAppliance (foundAppliance may need to be set as nullable)
-
+            Appliance foundAppliance = null;
             // Loop through Appliances
-                // Test appliance item number equals entered item number
-                    // Assign appliance in list to foundAppliance variable
+            foreach (Appliance appliance in Appliances)
+            {
+                if (appliance._itemNumber == itemNumber)
+                {
+                    foundAppliance = appliance;
+                    break;
+                }
+            }
+            // Test appliance item number equals entered item number
+            // Assign appliance in list to foundAppliance variable
 
-                    // Break out of loop (since we found what need to)
+            // Break out of loop (since we found what need to)
 
             // Test appliance was not found (foundAppliance is null)
-                // Write "No appliances found with that item number."
+            // Write "No appliances found with that item number."
 
             // Otherwise (appliance was found)
-                // Test found appliance is available
-                    // Checkout found appliance
+            // Test found appliance is available
+            // Checkout found appliance
 
-                    // Write "Appliance has been checked out."
-                // Otherwise (appliance isn't available)
-                    // Write "The appliance is not available to be checked out."
+            // Write "Appliance has been checked out."
+            // Otherwise (appliance isn't available)
+            // Write "The appliance is not available to be checked out."
         }
 
         /// <summary>
