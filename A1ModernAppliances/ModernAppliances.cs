@@ -1,5 +1,7 @@
 ﻿using ModernAppliances.Entities;
 using ModernAppliances.Entities.Abstract;
+using System.Text;
+using System.Threading;
 
 namespace ModernAppliances
 {
@@ -104,7 +106,6 @@ namespace ModernAppliances
                 case 1:
                     {
                         this.DisplayRefrigerators();
-
                         break;
                     }
 
