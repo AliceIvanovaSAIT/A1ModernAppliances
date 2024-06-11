@@ -17,16 +17,24 @@ namespace ModernAppliances
         public override void Checkout()
         {
             // Write "Enter the item number of an appliance: "
-
+            Console.Write("Enter the item number of an appliance: ");
             // Create long variable to hold item number
-
+            long itemNumber;
             // Get user input as string and assign to variable.
             // Convert user input from string to long and store as item number variable.
-
+            itemNumber = (long)Convert.ToDouble( Console.ReadLine());
             // Create 'foundAppliance' variable to hold appliance with item number
             // Assign null to foundAppliance (foundAppliance may need to be set as nullable)
-
+            Appliance foundAppliance = null;
             // Loop through Appliances
+            foreach (Appliance appliance in Appliances)
+            {
+                if (appliance._itemNumber == itemNumber)
+                {
+                    foundAppliance = appliance;
+                    break;
+                }
+            }
                 // Test appliance item number equals entered item number
                     // Assign appliance in list to foundAppliance variable
 
