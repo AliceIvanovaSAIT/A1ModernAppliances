@@ -71,34 +71,57 @@ namespace ModernAppliances
         public override void DisplayRefrigerators()
         {
             // Write "Possible options:"
+            Console.WriteLine("Possible options:");
 
             // Write "0 - Any"
+            Console.WriteLine("0 - Any");
+
             // Write "2 - Double doors"
+            Console.WriteLine("2 - Double doors");
+
             // Write "3 - Three doors"
+            Console.WriteLine("3 - Three doors");
+
             // Write "4 - Four doors"
+            Console.WriteLine("4 - Four doors");
 
             // Write "Enter number of doors: "
+            Console.WriteLine("Enter number of doors: ");
 
             // Create variable to hold entered number of doors
+            int numberOfDoors;
 
             // Get user input as string and assign to variable
+            string userInput = Console.ReadLine();
 
             // Convert user input from string to int and store as number of doors variable.
+            bool isNumber = int.TryParse(userInput, out numberOfDoors);
+
+            if (!isNumber)
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
 
             // Create list to hold found Appliance objects
-
+            List<Appliance> found = new List<Appliance>();
             // Iterate/loop through Appliances
+            foreach (Appliance appliance in Appliances)
+            {
                 // Test that current appliance is a refrigerator
-                    // Down cast Appliance to Refrigerator
-                    // Refrigerator refrigerator = (Refrigerator) appliance;
-
+                if (appliance is Refrigerator refrigerator)
+                {
                     // Test user entered 0 or refrigerator doors equals what user entered.
+                    if (numberOfDoors == 0 || refrigerator.Doors == numberOfDoors)
+                    {
                         // Add current appliance in list to found list
+                        found.Add(appliance);
+                    }
+                }
+            }
 
             // Display found appliances
-            // DisplayAppliancesFromList(found, 0);
+            DisplayAppliancesFromList(found, 0);
         }
-
         /// <summary>
         /// Displays Vacuums
         /// </summary>
