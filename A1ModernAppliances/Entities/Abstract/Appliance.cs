@@ -17,12 +17,12 @@
             Dishwasher = 4
         }
 
-        private readonly long _itemNumber;
-        private readonly string _brand;
-        private int _quantity;
-        private readonly decimal _wattage;
-        private readonly string _color;
-        private readonly decimal _price;
+        public long _itemNumber;
+        public  string _brand;
+        public int _quantity;
+        public decimal _wattage;
+        public string _color;
+        public decimal _price;
 
         public ApplianceTypes Type
         {
