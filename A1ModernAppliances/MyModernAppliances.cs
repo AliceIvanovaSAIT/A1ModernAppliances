@@ -70,25 +70,44 @@ namespace ModernAppliances
         /// </summary>
         public override void Find()
         {
-            // Write "Enter brand to search for:"
-
-            // Create string variable to hold entered brand
-            // Get user input as string and assign to variable.
-
-            // Create list to hold found Appliance objects
-
-            // Iterate through loaded appliances
-                // Test current appliance brand matches what user entered
-                    // Add current appliance in list to found list
-
-
-            // Display found appliances
-            // DisplayAppliancesFromList(found, 0);
+        Console.Write("Enter brand to search for: ");
+        string brand;
+        string inputBrand = Console.ReadLine();
+        if (inputBrand == null)
+        {
+            Console.WriteLine("Invalid Input.");
+            return;
         }
-
-        /// <summary>
-        /// Displays Refridgerators
-        /// </summary>
+        else
+        {
+            List<Appliance> foundAppliance = new List<Appliance>();
+            foreach (Appliance appliance in Appliances)
+            {
+                if (appliance._brand.Equals(inputBrand, StringComparison.OrdinalIgnoreCase))
+                {
+                    foundAppliance.Add(appliance);
+                }
+            }
+            
+            Console.WriteLine(foundAppliance.Count);
+    
+        }
+        
+        // Write "Enter brand to search for:"
+    
+        // Create string variable to hold entered brand
+        // Get user input as string and assign to variable.
+    
+        // Create list to hold found Appliance objects
+    
+        // Iterate through loaded appliances
+        // Test current appliance brand matches what user entered
+        // Add current appliance in list to found list
+    
+    
+        // Display found appliances
+        // DisplayAppliancesFromList(found, 0);
+        }
         public override void DisplayRefrigerators()
         {
             // Write "Possible options:"
