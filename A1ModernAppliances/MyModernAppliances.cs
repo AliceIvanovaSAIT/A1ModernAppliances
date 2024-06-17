@@ -70,9 +70,8 @@ namespace ModernAppliances
         /// </summary>
         public override void Find()
         {
-        Console.Write("Enter brand to search for: ");
-        string brand;
-        string inputBrand = Console.ReadLine();
+            Console.Write("Enter brand to search for: ");
+            string inputBrand = Console.ReadLine();
         if (inputBrand == null)
         {
             Console.WriteLine("Invalid Input.");
@@ -83,13 +82,12 @@ namespace ModernAppliances
             List<Appliance> foundAppliance = new List<Appliance>();
             foreach (Appliance appliance in Appliances)
             {
-                if (appliance._brand.Equals(inputBrand, StringComparison.OrdinalIgnoreCase))
+                if (appliance.Brand == inputBrand)
                 {
                     foundAppliance.Add(appliance);
                 }
             }
-            
-            Console.WriteLine(foundAppliance.Count);
+                DisplayAppliancesFromList(foundAppliance, foundAppliance.Count());
     
         }
         
@@ -479,61 +477,66 @@ namespace ModernAppliances
             // Get user input as string and assign to variable
             string numAppliancesInput = Console.ReadLine();
 
+            int result;
             // Convert user input from string to int
-            bool isNumber = int.TryParse(numAppliancesInput, out int numberOfAppliances);
+            bool isNumber = int.TryParse(numAppliancesInput, out result);
 
             // Create variable to hold list of found appliances
             List<Appliance> found = new List<Appliance>();
-            foreach (var appliance in Appliances)
+            if (isNumber)
             {
-            // Loop through appliances
-            // Test inputted appliance type is "0"
+                foreach (var appliance in Appliances)
+                {
+                    // Loop through appliances
+                    // Test inputted appliance type is "0"
 
-            if (applianceTypeInput == "0")
-            {
-                // Add current appliance in list to found list
-                found.Add(appliance);
-            }
-            // Test inputted appliance type is "1"
-            // Test current appliance type is Refrigerator
-            else if (applianceTypeInput == "1" && appliance is Refrigerator)
-            {
-                // Add current appliance in list to found list
-                found.Add(appliance);
-            }
-            // Test inputted appliance type is "2"
-            // Test current appliance type is Vacuum
-            else if (applianceTypeInput == "2" && appliance is Vacuum)
-            {
-                // Add current appliance in list to found list
-                found.Add(appliance);
-            }
-            // Test inputted appliance type is "3"
-            // Test current appliance type is Microwave
-            else if (applianceTypeInput == "3" && appliance is Microwave)
-            {
-                // Add current appliance in list to found list
-                found.Add(appliance);
-            }
-            // Test inputted appliance type is "4"
-            // Test current appliance type is Dishwasher
-            else if (applianceTypeInput == "4" && appliance is Dishwasher)
-            {
-                // Add current appliance in list to found list
-                found.Add(appliance);
+                    if (applianceTypeInput == "0")
+                    {
+                        // Add current appliance in list to found list
+                        found.Add(appliance);
+                    }
+                    // Test inputted appliance type is "1"
+                    // Test current appliance type is Refrigerator
+                    else if (applianceTypeInput == "1" && appliance is Refrigerator)
+                    {
+                        // Add current appliance in list to found list
+                        found.Add(appliance);
+                    }
+                    // Test inputted appliance type is "2"
+                    // Test current appliance type is Vacuum
+                    else if (applianceTypeInput == "2" && appliance is Vacuum)
+                    {
+                        // Add current appliance in list to found list
+                        found.Add(appliance);
+                    }
+                    // Test inputted appliance type is "3"
+                    // Test current appliance type is Microwave
+                    else if (applianceTypeInput == "3" && appliance is Microwave)
+                    {
+                        // Add current appliance in list to found list
+                        found.Add(appliance);
+                    }
+                    // Test inputted appliance type is "4"
+                    // Test current appliance type is Dishwasher
+                    else if (applianceTypeInput == "4" && appliance is Dishwasher)
+                    {
+                        // Add current appliance in list to found list
+                        found.Add(appliance);
+                    }
+                }
             }
             else
             {
                 Console.WriteLine("Invalid option.");
-                return;    
+                return;
             }
-            }
+                
             
             // Randomize list of found appliances
             found.Sort(new RandomComparer());
 
             // Display found appliances (up to max. number inputted)
-            DisplayAppliancesFromList(found, 0);
+            DisplayAppliancesFromList(found, result);
         }
     }
 }
