@@ -229,7 +229,7 @@ namespace ModernAppliances
             Console.WriteLine("0 - Any");
             Console.WriteLine("1 - 18 Volt");
             Console.WriteLine("2 - 24 Volt");
-            Console.WriteLine($"Enter voltage:\n    ");
+            Console.Write($"Enter voltage:\n    ");
 
             userInput = Console.ReadLine();
             int voltage;
@@ -363,7 +363,7 @@ namespace ModernAppliances
         public override void DisplayDishwashers()
         {
             var count = 0;
-            Console.WriteLine($"0 - Any\n1 - Quietest\n2 - Quieter\n3 - Quiet\n4 - Moderate\nEnter sound rating:\n    ");
+            Console.Write($"0 - Any\n1 - Quietest\n2 - Quieter\n3 - Quiet\n4 - Moderate\nEnter sound rating:\n    ");
             var option = 10;
             List<int> correct_choices = new List<int>();
             correct_choices.Add(0);
@@ -471,12 +471,12 @@ namespace ModernAppliances
             Console.WriteLine("4 – Dishwashers");
 
             // Write "Enter type of appliance:"
-            Console.WriteLine($"Enter type of appliance:\n    ");
+            Console.Write($"Enter type of appliance:\n    ");
 
             // Get user input as string and assign to appliance type variable
             string applianceTypeInput = Console.ReadLine();
             // Write "Enter number of appliances: "
-            Console.WriteLine($"Enter number of appliances:\n    ");
+            Console.Write($"Enter number of appliances:\n    ");
 
             // Get user input as string and assign to variable
             string numAppliancesInput = Console.ReadLine();
