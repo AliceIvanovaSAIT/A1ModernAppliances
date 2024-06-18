@@ -7,8 +7,10 @@ namespace ModernAppliances
     /// <summary>
     /// Manager class for Modern Appliances
     /// </summary>
-    /// <remarks>Author: </remarks>
-    /// <remarks>Date: </remarks>
+    /// <remarks>Authors: Nikita, Alice, Grace, Elijah</remarks>
+    /// <remarks>Date: 18 jan 2024</remarks>
+    /// <remarks>Input is moved with tab</remarks>
+    /// <remarks>Output must match the word documentation</remarks>
     internal class MyModernAppliances : ModernAppliances
     {
         /// <summary>
