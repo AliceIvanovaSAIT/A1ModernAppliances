@@ -16,17 +16,11 @@ namespace ModernAppliances
         /// </summary>
         public override void Checkout()
         {
-            // Write "Enter the item number of an appliance: "
             Console.Write($"Enter the item number of an appliance:\n    ");
-            // Create long variable to hold item number
             long itemNumber;
-            // Get user input as string and assign to variable.
-            // Convert user input from string to long and store as item number variable.
             itemNumber = (long)Convert.ToDouble(Console.ReadLine());
-            // Create 'foundAppliance' variable to hold appliance with item number
-            // Assign null to foundAppliance (foundAppliance may need to be set as nullable)
             Appliance foundAppliance = null;
-            // Loop through Appliances
+
             foreach (Appliance appliance in Appliances)
             {
                 if (appliance._itemNumber == itemNumber)
@@ -35,13 +29,7 @@ namespace ModernAppliances
                     break;
                 }
             }
-            // Test appliance item number equals entered item number
-            // Assign appliance in list to foundAppliance variable
 
-            // Break out of loop (since we found what need to)
-
-            // Test appliance was not found (foundAppliance is null)
-            // Write "No appliances found with that item number."
             if (foundAppliance == null)
             {
                 Console.WriteLine($"No appliances found with that item number.\n");
@@ -55,14 +43,6 @@ namespace ModernAppliances
                 foundAppliance.Checkout();
                 Console.WriteLine($"Appliance \"{foundAppliance.ItemNumber}\" has been checked out.\n");
             }
-
-            // Otherwise (appliance was found)
-            // Test found appliance is available
-            // Checkout found appliance
-
-            // Write "Appliance has been checked out."
-            // Otherwise (appliance isn't available)
-            // Write "The appliance is not available to be checked out."
         }
 
         /// <summary>
@@ -72,6 +52,7 @@ namespace ModernAppliances
         {
             Console.Write($"Enter brand to search for:\n    ");
             string inputBrand = Console.ReadLine();
+
             if (inputBrand == null)
             {
                 Console.WriteLine("Invalid Input.");
@@ -89,23 +70,7 @@ namespace ModernAppliances
                 }
                 Console.WriteLine("Matching Appliances:");
                 DisplayAppliancesFromList(foundAppliance, foundAppliance.Count());
-
             }
-
-            // Write "Enter brand to search for:"
-
-            // Create string variable to hold entered brand
-            // Get user input as string and assign to variable.
-
-            // Create list to hold found Appliance objects
-
-            // Iterate through loaded appliances
-            // Test current appliance brand matches what user entered
-            // Add current appliance in list to found list
-
-
-            // Display found appliances
-            // DisplayAppliancesFromList(found, 0);
         }
         public override void DisplayRefrigerators()
         {
@@ -297,47 +262,6 @@ namespace ModernAppliances
                 DisplayAppliancesFromList(dishwashers_list, dishwashers_list.Count());
             }
             else { Console.WriteLine("Invalid input"); return; }
-           
-            
-            // Write "Possible options:"
-
-            // Write "0 - Any"
-            // Write "1 - Quietest"
-            // Write "2 - Quieter"
-            // Write "3 - Quiet"
-            // Write "4 - Moderate"
-
-            // Write "Enter sound rating:"
-
-            // Get user input as string and assign to variable
-
-            // Create variable that holds sound rating
-
-            // Test input is "0"
-            // Assign "Any" to sound rating variable
-            // Test input is "1"
-            // Assign "Qt" to sound rating variable
-            // Test input is "2"
-            // Assign "Qr" to sound rating variable
-            // Test input is "3"
-            // Assign "Qu" to sound rating variable
-            // Test input is "4"
-            // Assign "M" to sound rating variable
-            // Otherwise (input is something else)
-            // Write "Invalid option."
-            // Return to calling method
-
-            // Create variable that holds list of found appliances
-
-            // Loop through Appliances
-            // Test if current appliance is dishwasher
-            // Down cast current Appliance to Dishwasher
-
-            // Test sound rating is "Any" or equals soundrating for current dishwasher
-            // Add current appliance in list to found list
-
-            // Display found appliances (up to max. number inputted)
-            // DisplayAppliancesFromList(found, 0);
         }
 
         /// <summary>
@@ -345,12 +269,9 @@ namespace ModernAppliances
         /// </summary>
         public override void RandomList()
         {
-            // Write "Appliance Types"
-            // Get user input as string and assign to appliance type variable
-            // Write "Enter number of appliances: "
+            
             Console.Write($"Enter number of appliances:\n    ");
 
-            // Get user input as string and assign to variable
             int numAppliancesInput = Convert.ToInt32(Console.ReadLine());
 
             if (numAppliancesInput > Appliances.Count || numAppliancesInput == 0)
@@ -359,8 +280,6 @@ namespace ModernAppliances
             }
             else
             {
-
-
                 Random random = new Random();
 
                 List<Appliance> copyAppliance = new List<Appliance>(Appliances);
@@ -373,9 +292,7 @@ namespace ModernAppliances
                     copyAppliance[j] = temp;
                 }
 
-
                 Console.WriteLine("Random appliances:");
-                // Display found appliances (up to max. number inputted)
                 DisplayAppliancesFromList(copyAppliance, numAppliancesInput);
             }
         }
