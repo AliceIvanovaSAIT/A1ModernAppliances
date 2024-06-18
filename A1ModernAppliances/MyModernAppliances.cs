@@ -114,11 +114,7 @@ namespace ModernAppliances
             // Write "2 - Double doors"
             // Write "3 - Three doors"
             // Write "4 - Four doors"
-            Console.Write($"0 - Any\n" +
-                              $"2 - Double Doors\n" +
-                              $"3 - Three Doors\n" +
-                              $"4 - Four Doors\n" +
-                              $"Enter Number of doors:\n    ");
+            Console.Write($"Enter number of doors: 2 (double door), 3 (three doors) or 4 (four doors):\n    ");
             var option = 1;
             List<int> correct_choices = new List<int>(); 
             correct_choices.Add(0);
@@ -198,51 +194,20 @@ namespace ModernAppliances
         /// <param name="voltage">Vacuum voltage (or 0 for any voltage)</param>
         public override void DisplayVacuums()
         {
-            Console.WriteLine("Possible options:");
-            Console.WriteLine("0 - Any");
-            Console.WriteLine("1 - Residential");
-            Console.WriteLine("2 - Commercial");
-            Console.Write($"Enter grade:\n    ");
-
+            Console.Write("Enter battery voltage value. 18 V (low) or 24 V (high):\n    ");
+            
             string userInput = Console.ReadLine();
-            string grade;
-
-            if (userInput == "0")
-            {
-                grade = "Any";
-            }
-            else if (userInput == "1")
-            {
-                grade = "Residential";
-            }
-            else if (userInput == "2")
-            {
-                grade = "Commercial";
-            }
-            else
-            {
-                Console.WriteLine("Invalid option.");
-                return;
-            }
-
-            Console.WriteLine("Possible options:");
-            Console.WriteLine("0 - Any");
-            Console.WriteLine("1 - 18 Volt");
-            Console.WriteLine("2 - 24 Volt");
-            Console.Write($"Enter voltage:\n    ");
-
-            userInput = Console.ReadLine();
             int voltage;
 
             if (userInput == "0")
             {
                 voltage = 0;
             }
-            else if (userInput == "1")
+            else if (userInput == "18")
             {
                 voltage = 18;
             }
-            else if (userInput == "2")
+            else if (userInput == "24")
             {
                 voltage = 24;
             }
@@ -258,7 +223,7 @@ namespace ModernAppliances
             {
                 if (appliance is Vacuum vacuum)
                 {
-                    if ((grade == "Any" || vacuum.Grade == grade) && (voltage == 0 || vacuum.BatteryVoltage == voltage))
+                    if (voltage == 0 || vacuum.BatteryVoltage == voltage)
                     {
                         found.Add(appliance);
                     }
@@ -281,11 +246,7 @@ namespace ModernAppliances
 
             // Write "Enter room type:"
 
-            Console.Write("Possible options:\n" +
-                          "0 - Any\n" +
-                          "1 - Kitchen\n" +
-                          "2 - Work site\n" +
-                          "Enter room type:\n    ");
+            Console.Write("Room where the microwave will be installed: K (kitchen) or W (work site):\n    ");
 
             string userInput = Console.ReadLine();
             // Get user input as string and assign to variable
@@ -363,7 +324,7 @@ namespace ModernAppliances
         public override void DisplayDishwashers()
         {
             var count = 0;
-            Console.Write($"0 - Any\n1 - Quietest\n2 - Quieter\n3 - Quiet\n4 - Moderate\nEnter sound rating:\n    ");
+            Console.Write($"Enter the sound rating of the dishwasher: Qt (Quietest), Qr (Quieter), Qu(Quiet) or M (Moderate):\n    ");
             var option = 10;
             List<int> correct_choices = new List<int>();
             correct_choices.Add(0);
