@@ -70,7 +70,7 @@ namespace ModernAppliances
         /// </summary>
         public override void Find()
         {
-            Console.Write("Enter brand to search for: ");
+            Console.Write($"Enter brand to search for:\n    ");
             string inputBrand = Console.ReadLine();
         if (inputBrand == null)
         {
