@@ -109,63 +109,57 @@ namespace ModernAppliances
         }
         public override void DisplayRefrigerators()
         {
-            // Write "Possible options:"
-
-            // Write "0 - Any"
-            // Write "2 - Double doors"
-            // Write "3 - Three doors"
-            // Write "4 - Four doors"
             Console.Write($"Enter number of doors: 2 (double door), 3 (three doors) or 4 (four doors):\n    ");
-            var option = 1;
-            List<int> correct_choices = new List<int>();
-            correct_choices.Add(0);
-            correct_choices.Add(2);
-            correct_choices.Add(3);
-            correct_choices.Add(4);
-            while (!correct_choices.Contains(option))
+            List<int> correct_choices = new List<int>
             {
-                option = Convert.ToInt16(Console.ReadLine());
-                //May break due it doesn't checks if the string is int, it just converts
-                //So if you have something better, let me know.
-            }
+                0,
+                2,
+                3,
+                4
+            };
+            bool isNumber = int.TryParse(Console.ReadLine(), out int option);
             bool isDoorless = false; //Default value
-            if (option == 0)
+            if (isNumber)
             {
-                Console.WriteLine("Is your refrigerator doorless? Y/N");
-                var doorless_option = Console.ReadLine();
-                if (doorless_option != null || doorless_option.ToLower() == "y")
+                if (option == 0)
                 {
-                    isDoorless = true;
-                }
-                else { isDoorless = false; }
-            }
-            MyModernAppliances appliances_list = new MyModernAppliances();
-            List<Appliance> refrigerator_list = new List<Appliance>();
-            int count = 0;
-            foreach (var appliance_object in appliances_list.Appliances)
-            {
-                if (appliance_object is Refrigerator refrigerator)
-                {
-                    count += 1;
-                    if (option == 0)
+                    Console.WriteLine("Is your refrigerator doorless? Y/N");
+                    var doorless_option = Console.ReadLine();
+                    if (doorless_option != null && doorless_option.ToLower() == "y")
                     {
-                        if (isDoorless)
+                        isDoorless = true;
+                    }
+                    else { isDoorless = false; }
+                }
+                List<Appliance> refrigerator_list = new List<Appliance>();
+                foreach (var appliance_object in Appliances)
+                {
+                    if (appliance_object is Refrigerator refrigerator)
+                    {
+                        if (option == 0)
+                        {
+                            if (isDoorless)
+                            {
+                                if (option == refrigerator.Doors) { refrigerator_list.Add(refrigerator); }
+                            }
+                            else
+                            {
+                                refrigerator_list.Add(refrigerator);
+                            }
+                        } // For doorless Fridges
+                        else
                         {
                             if (option == refrigerator.Doors) { refrigerator_list.Add(refrigerator); }
                         }
-                        else
-                        {
-                            refrigerator_list.Add(refrigerator);
-                        }
-                    } // For doorless Fridges
-                    else
-                    {
-                        if (option == refrigerator.Doors) { refrigerator_list.Add(refrigerator); }
                     }
                 }
+                Console.WriteLine("Matching refrigerators:");
+                DisplayAppliancesFromList(refrigerator_list, refrigerator_list.Count());
             }
-            Console.WriteLine("Matching refrigerators:");
-            DisplayAppliancesFromList(refrigerator_list, count);
+            else
+            {
+                Console.WriteLine("Invalid input.");
+            }
 
             // Write "Enter number of doors: "
 
@@ -327,56 +321,34 @@ namespace ModernAppliances
         /// </summary>
         public override void DisplayDishwashers()
         {
-            var count = 0;
             Console.Write($"Enter the sound rating of the dishwasher: Qt (Quietest), Qr (Quieter), Qu(Quiet) or M (Moderate):\n    ");
-            var option = 10;
-            List<int> correct_choices = new List<int>();
-            correct_choices.Add(0);
-            correct_choices.Add(1);
-            correct_choices.Add(2);
-            correct_choices.Add(3);
-            correct_choices.Add(4);
-            while (!correct_choices.Contains(option))
+            List<string> correct_choices = new List<string>
             {
-                if (count > 0)
+                "qt",
+                "qr",
+                "qu",
+                "m",
+                "any"
+            };
+            string userInput = Console.ReadLine();
+            if (userInput != null && correct_choices.Contains(userInput.ToLower()))
+            {
+                MyModernAppliances appliances_list = new MyModernAppliances();
+                List<Appliance> dishwashers_list = new List<Appliance>();
+                foreach (var appliance_object in appliances_list.Appliances)
                 {
-                    Console
-                        .WriteLine("Invalid input.");
-                }
-                option = int.Parse(Console.ReadLine());
-                //May break due it doesn't checks if the string is int, it just converts
-                //So if you have something better, let me know.
-                count += 1;
-            }
-            var sound_rating = "";
-            switch (option)
-            {
-                case 0: sound_rating = "Any"; break;
-                case 1: sound_rating = "Qt"; break;
-                case 2: sound_rating = "Qr"; break;
-                case 3: sound_rating = "Qu"; break;
-                case 4: sound_rating = "M"; break;
-            }
-            MyModernAppliances appliances_list = new MyModernAppliances();
-            List<Appliance> dishwashers_list = new List<Appliance>();
-            count = 0;
-            foreach (var appliance_object in appliances_list.Appliances)
-            {
-                if (appliance_object is Dishwasher dishwasher)
-                {
-                    count += 1;
-                    if (sound_rating == "Any")
+                    if (appliance_object is Dishwasher dishwasher)
                     {
-                        dishwashers_list.Add(dishwasher);
-                    }
-                    else
-                    {
-                        if (sound_rating == dishwasher.SoundRating) { dishwashers_list.Add(dishwasher); }
+                        if (userInput == "Any") { dishwashers_list.Add(dishwasher); }
+                        else { if (userInput == dishwasher.SoundRating) { dishwashers_list.Add(dishwasher); } }
+
                     }
                 }
+                Console.WriteLine("Matching dishwashers:");
+                DisplayAppliancesFromList(dishwashers_list, dishwashers_list.Count());
             }
-            Console.WriteLine("Matching dishwashers:");
-            DisplayAppliancesFromList(dishwashers_list, count);
+            else { Console.WriteLine("Invalid input."); return; }
+            
             // Write "Possible options:"
 
             // Write "0 - Any"
