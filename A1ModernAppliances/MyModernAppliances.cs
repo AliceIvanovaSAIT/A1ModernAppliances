@@ -161,12 +161,6 @@ namespace ModernAppliances
                 Console.WriteLine("Invalid input.");
             }
 
-            // Write "Enter number of doors: "
-
-            // Create variable to hold entered number of doors
-
-            // Get user input as string and assign to variable
-
         }
 
         /// <summary>
