@@ -337,7 +337,7 @@ namespace ModernAppliances
                 if (count > 0)
                 {
                     Console
-                        .WriteLine("Error: Wrong Input");
+                        .WriteLine("Invalid input.");
                 }
                 option = int.Parse(Console.ReadLine());
                 //May break due it doesn't checks if the string is int, it just converts
@@ -419,89 +419,45 @@ namespace ModernAppliances
         public override void RandomList()
         {
             // Write "Appliance Types"
-            Console.WriteLine("Appliance Types:");
-            // Write "0 - Any"
-            Console.WriteLine("0 - Any");
-            // Write "1 – Refrigerators"
-            Console.WriteLine("1 – Refrigerators");
-            // Write "2 – Vacuums"
-            Console.WriteLine("2 – Vacuums");
-            // Write "3 – Microwaves"
-            Console.WriteLine("3 – Microwaves");
-            // Write "4 – Dishwashers"
-            Console.WriteLine("4 – Dishwashers");
-
-            // Write "Enter type of appliance:"
-            Console.Write($"Enter type of appliance:\n    ");
-
             // Get user input as string and assign to appliance type variable
-            string applianceTypeInput = Console.ReadLine();
             // Write "Enter number of appliances: "
             Console.Write($"Enter number of appliances:\n    ");
 
             // Get user input as string and assign to variable
-            string numAppliancesInput = Console.ReadLine();
+            int numAppliancesInput = Convert.ToInt32(Console.ReadLine());
 
-            int result;
-            // Convert user input from string to int
-            bool isNumber = int.TryParse(numAppliancesInput, out result);
-
-            // Create variable to hold list of found appliances
-            List<Appliance> found = new List<Appliance>();
-            if (isNumber)
+            // Check if the number of elements requested is more than the original list count
+            if (numAppliancesInput > Appliances.Count || numAppliancesInput == 0)
             {
-                foreach (var appliance in Appliances)
-                {
-                    // Loop through appliances
-                    // Test inputted appliance type is "0"
-
-                    if (applianceTypeInput == "0")
-                    {
-                        // Add current appliance in list to found list
-                        found.Add(appliance);
-                    }
-                    // Test inputted appliance type is "1"
-                    // Test current appliance type is Refrigerator
-                    else if (applianceTypeInput == "1" && appliance is Refrigerator)
-                    {
-                        // Add current appliance in list to found list
-                        found.Add(appliance);
-                    }
-                    // Test inputted appliance type is "2"
-                    // Test current appliance type is Vacuum
-                    else if (applianceTypeInput == "2" && appliance is Vacuum)
-                    {
-                        // Add current appliance in list to found list
-                        found.Add(appliance);
-                    }
-                    // Test inputted appliance type is "3"
-                    // Test current appliance type is Microwave
-                    else if (applianceTypeInput == "3" && appliance is Microwave)
-                    {
-                        // Add current appliance in list to found list
-                        found.Add(appliance);
-                    }
-                    // Test inputted appliance type is "4"
-                    // Test current appliance type is Dishwasher
-                    else if (applianceTypeInput == "4" && appliance is Dishwasher)
-                    {
-                        // Add current appliance in list to found list
-                        found.Add(appliance);
-                    }
-                }
+                Console.WriteLine("Invalid option.");
             }
             else
             {
-                Console.WriteLine("Invalid option.");
-                return;
-            }
-                
-            
-            // Randomize list of found appliances
-            found.Sort(new RandomComparer());
 
-            // Display found appliances (up to max. number inputted)
-            DisplayAppliancesFromList(found, result);
+
+                // Create a random number generator
+                Random random = new Random();
+
+                List<Appliance> copyAppliance = new List<Appliance>(Appliances);
+
+                // Shuffle the original list using Fisher-Yates shuffle algorithm
+                for (int i = copyAppliance.Count - 1; i > 0; i--)
+                {
+                    int j = random.Next(i + 1);
+                    // Swap elements
+                    Appliance temp = copyAppliance[i];
+                    copyAppliance[i] = copyAppliance[j];
+                    copyAppliance[j] = temp;
+                }
+
+                // Take the first 'numberOfElements' from the shuffled list
+
+
+                // Print the random list
+
+                // Display found appliances (up to max. number inputted)
+                DisplayAppliancesFromList(copyAppliance, numAppliancesInput);
+            }
         }
     }
 }
