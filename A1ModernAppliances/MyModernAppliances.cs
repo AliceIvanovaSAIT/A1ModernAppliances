@@ -97,7 +97,7 @@ namespace ModernAppliances
             bool isNumber = int.TryParse(Console.ReadLine(), out int option);
             bool isDoorless = false;
 
-            if (isNumber)
+            if (isNumber && correct_choices.Contains(option))
             {
                 if (option == 0)
                 {
