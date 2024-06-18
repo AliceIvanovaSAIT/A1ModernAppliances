@@ -17,6 +17,7 @@ namespace ModernAppliances
         public override void Checkout()
         {
             Console.Write($"Enter the item number of an appliance:\n    ");
+
             long itemNumber;
             itemNumber = (long)Convert.ToDouble(Console.ReadLine());
             Appliance foundAppliance = null;
@@ -68,18 +69,23 @@ namespace ModernAppliances
                         foundAppliance.Add(appliance);
                     }
                 }
+
                 if (foundAppliance.Count > 0)
                 {
                     Console.WriteLine("Matching Appliances:");
                     DisplayAppliancesFromList(foundAppliance, foundAppliance.Count());
                 }
-                else { DisplayAppliancesFromList(foundAppliance, foundAppliance.Count()); }
+                else 
+                { 
+                    DisplayAppliancesFromList(foundAppliance, foundAppliance.Count()); 
+                }
                 
             }
         }
         public override void DisplayRefrigerators()
         {
             Console.Write($"Enter number of doors: 2 (double door), 3 (three doors) or 4 (four doors):\n    ");
+
             List<int> correct_choices = new List<int>
             {
                 0,
@@ -87,21 +93,30 @@ namespace ModernAppliances
                 3,
                 4
             };
+
             bool isNumber = int.TryParse(Console.ReadLine(), out int option);
-            bool isDoorless = false; //Default value
+            bool isDoorless = false;
+
             if (isNumber)
             {
                 if (option == 0)
                 {
                     Console.WriteLine("Is your refrigerator doorless? Y/N");
                     var doorless_option = Console.ReadLine();
+
                     if (doorless_option != null && doorless_option.ToLower() == "y")
                     {
                         isDoorless = true;
                     }
-                    else { isDoorless = false; }
+
+                    else 
+                    { 
+                        isDoorless = false; 
+                    }
                 }
+
                 List<Appliance> refrigerator_list = new List<Appliance>();
+
                 foreach (var appliance_object in Appliances)
                 {
                     if (appliance_object is Refrigerator refrigerator)
@@ -110,7 +125,10 @@ namespace ModernAppliances
                         {
                             if (isDoorless)
                             {
-                                if (option == refrigerator.Doors) { refrigerator_list.Add(refrigerator); }
+                                if (option == refrigerator.Doors) 
+                                { 
+                                    refrigerator_list.Add(refrigerator); 
+                                }
                             }
                             else
                             {
@@ -119,10 +137,14 @@ namespace ModernAppliances
                         } // For doorless Fridges
                         else
                         {
-                            if (option == refrigerator.Doors) { refrigerator_list.Add(refrigerator); }
+                            if (option == refrigerator.Doors) 
+                            { 
+                                refrigerator_list.Add(refrigerator); 
+                            }
                         }
                     }
                 }
+
                 Console.WriteLine("Matching refrigerators:");
                 DisplayAppliancesFromList(refrigerator_list, refrigerator_list.Count());
             }
@@ -202,7 +224,6 @@ namespace ModernAppliances
                 Console.WriteLine("Invalid option.");
             }
             
-
             List<Appliance> found = new List<Appliance>();
 
             foreach (Appliance appliance in Appliances)
@@ -237,6 +258,7 @@ namespace ModernAppliances
         public override void DisplayDishwashers()
         {
             Console.Write($"Enter the sound rating of the dishwasher: Qt (Quietest), Qr (Quieter), Qu(Quiet) or M (Moderate):\n    ");
+            
             List<string> correct_choices = new List<string>
             {
                 "qt",
@@ -245,24 +267,40 @@ namespace ModernAppliances
                 "m",
                 "any"
             };
+
             string userInput = Console.ReadLine();
+
             if (userInput != null && correct_choices.Contains(userInput.ToLower()))
             {
                 MyModernAppliances appliances_list = new MyModernAppliances();
                 List<Appliance> dishwashers_list = new List<Appliance>();
+
                 foreach (var appliance_object in appliances_list.Appliances)
                 {
                     if (appliance_object is Dishwasher dishwasher)
                     {
-                        if (userInput == "Any") { dishwashers_list.Add(dishwasher); }
-                        else { if (userInput == dishwasher.SoundRating) { dishwashers_list.Add(dishwasher); } }
+                        if (userInput == "Any") 
+                        { 
+                            dishwashers_list.Add(dishwasher); 
+                        }
+                        else 
+                        { 
+                            if (userInput == dishwasher.SoundRating)
+                            { 
+                                dishwashers_list.Add(dishwasher); 
+                            }
+                        }
 
                     }
                 }
+
                 Console.WriteLine("Matching dishwashers:");
                 DisplayAppliancesFromList(dishwashers_list, dishwashers_list.Count());
             }
-            else { Console.WriteLine("Invalid input"); return; }
+            else 
+            { 
+                Console.WriteLine("Invalid input"); return; 
+            }
         }
 
         /// <summary>
