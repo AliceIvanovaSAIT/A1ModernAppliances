@@ -197,10 +197,6 @@ namespace ModernAppliances
             {
                 userInput = "W";
             }
-            else if (userInput == "0")
-            {
-                userInput = "A";
-            }
             else
             {
                 Console.WriteLine("Invalid option.");
