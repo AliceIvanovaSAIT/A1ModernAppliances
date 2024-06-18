@@ -114,7 +114,7 @@ namespace ModernAppliances
             // Write "2 - Double doors"
             // Write "3 - Three doors"
             // Write "4 - Four doors"
-            Console.WriteLine("0 - Any\n2 - Double Doors\n3 - Three Doors\n4 = Four Doors\nEnter Number of doors:\n    ");
+            Console.WriteLine($"0 - Any\n2 - Double Doors\n3 - Three Doors\n4 = Four Doors\nEnter Number of doors:\n    ");
             var option = 1;
             List<int> correct_choices = new List<int>(); 
             correct_choices.Add(0);
@@ -359,7 +359,7 @@ namespace ModernAppliances
         public override void DisplayDishwashers()
         {
             var count = 0;
-            Console.WriteLine("0 - Any\n1 - Quietest\n2 - Quieter\n3 - Quiet\n4 - Moderate\nEnter sound rating:\n    ");
+            Console.WriteLine($"0 - Any\n1 - Quietest\n2 - Quieter\n3 - Quiet\n4 - Moderate\nEnter sound rating:\n    ");
             var option = 10;
             List<int> correct_choices = new List<int>();
             correct_choices.Add(0);
