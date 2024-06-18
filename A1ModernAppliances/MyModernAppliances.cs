@@ -163,6 +163,7 @@ namespace ModernAppliances
                     }
                 }
             }
+            Console.WriteLine("Matching refrigerators:");
             DisplayAppliancesFromList(refrigerator_list, count);
 
             // Write "Enter number of doors: "
@@ -230,6 +231,7 @@ namespace ModernAppliances
                 }
             }
 
+            Console.WriteLine("Matching vacuums:");
             DisplayAppliancesFromList(found, 0);
         }
 
@@ -304,6 +306,7 @@ namespace ModernAppliances
 
             if (found.Count > 0)
             {
+                Console.WriteLine("Matching microwaves:");
                 DisplayAppliancesFromList(found, 0);
             }
 
@@ -371,6 +374,7 @@ namespace ModernAppliances
                     }
                 }
             }
+            Console.WriteLine("Matching dishwashers:");
             DisplayAppliancesFromList(dishwashers_list, count);
             // Write "Possible options:"
 
@@ -447,7 +451,7 @@ namespace ModernAppliances
                 }
 
                 
-
+                Console.WriteLine("Random appliances:");
                 // Display found appliances (up to max. number inputted)
                 DisplayAppliancesFromList(copyAppliance, numAppliancesInput);
             }
