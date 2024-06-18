@@ -70,7 +70,7 @@ namespace ModernAppliances
         /// </summary>
         public override void Find()
         {
-            Console.Write("Enter brand to search for: ");
+            Console.Write($"Enter brand to search for:\n    ");
             string inputBrand = Console.ReadLine();
         if (inputBrand == null)
         {
@@ -114,7 +114,7 @@ namespace ModernAppliances
             // Write "2 - Double doors"
             // Write "3 - Three doors"
             // Write "4 - Four doors"
-            Console.WriteLine("0 - Any\n2 - Double Doors\n3 - Three Doors\n4 = Four Doors\nEnter Number of doors:");
+            Console.WriteLine("0 - Any\n2 - Double Doors\n3 - Three Doors\n4 = Four Doors\nEnter Number of doors:\n    ");
             var option = 1;
             List<int> correct_choices = new List<int>(); 
             correct_choices.Add(0);
@@ -198,7 +198,7 @@ namespace ModernAppliances
             Console.WriteLine("0 - Any");
             Console.WriteLine("1 - Residential");
             Console.WriteLine("2 - Commercial");
-            Console.WriteLine("Enter grade:");
+            Console.WriteLine($"Enter grade:\n    ");
 
             string userInput = Console.ReadLine();
             string grade;
@@ -225,7 +225,7 @@ namespace ModernAppliances
             Console.WriteLine("0 - Any");
             Console.WriteLine("1 - 18 Volt");
             Console.WriteLine("2 - 24 Volt");
-            Console.WriteLine("Enter voltage:");
+            Console.WriteLine($"Enter voltage:\n    ");
 
             userInput = Console.ReadLine();
             int voltage;
@@ -339,7 +339,6 @@ namespace ModernAppliances
 
             if (found.Count > 0)
             {
-                Console.WriteLine("\nMatching microwaves:\n");
                 DisplayAppliancesFromList(found, 0);
             }
 
@@ -360,7 +359,7 @@ namespace ModernAppliances
         public override void DisplayDishwashers()
         {
             var count = 0;
-            Console.WriteLine("0 - Any\n1 - Quietest\n2 - Quieter\n3 - Quiet\n4 - Moderate\nEnter sound rating:");
+            Console.WriteLine("0 - Any\n1 - Quietest\n2 - Quieter\n3 - Quiet\n4 - Moderate\nEnter sound rating:\n    ");
             var option = 10;
             List<int> correct_choices = new List<int>();
             correct_choices.Add(0);
@@ -468,12 +467,12 @@ namespace ModernAppliances
             Console.WriteLine("4 – Dishwashers");
 
             // Write "Enter type of appliance:"
-            Console.WriteLine("Enter type of appliance:");
+            Console.WriteLine($"Enter type of appliance:\n    ");
 
             // Get user input as string and assign to appliance type variable
             string applianceTypeInput = Console.ReadLine();
             // Write "Enter number of appliances: "
-            Console.WriteLine("Enter number of appliances:");
+            Console.WriteLine($"Enter number of appliances:\n    ");
 
             // Get user input as string and assign to variable
             string numAppliancesInput = Console.ReadLine();
