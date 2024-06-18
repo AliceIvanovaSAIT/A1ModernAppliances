@@ -62,6 +62,7 @@ namespace ModernAppliances
             else
             {
                 List<Appliance> foundAppliance = new List<Appliance>();
+
                 foreach (Appliance appliance in Appliances)
                 {
                     if (appliance.Brand == inputBrand)
@@ -299,7 +300,8 @@ namespace ModernAppliances
             }
             else 
             { 
-                Console.WriteLine("Invalid input"); return; 
+                Console.WriteLine("Invalid input"); 
+                return; 
             }
         }
 
