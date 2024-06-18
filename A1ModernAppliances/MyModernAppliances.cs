@@ -114,7 +114,11 @@ namespace ModernAppliances
             // Write "2 - Double doors"
             // Write "3 - Three doors"
             // Write "4 - Four doors"
-            Console.WriteLine($"0 - Any\n2 - Double Doors\n3 - Three Doors\n4 = Four Doors\nEnter Number of doors:\n    ");
+            Console.Write($"0 - Any\n" +
+                              $"2 - Double Doors\n" +
+                              $"3 - Three Doors\n" +
+                              $"4 - Four Doors\n" +
+                              $"Enter Number of doors:\n");
             var option = 1;
             List<int> correct_choices = new List<int>(); 
             correct_choices.Add(0);
@@ -123,7 +127,7 @@ namespace ModernAppliances
             correct_choices.Add(4);
             while (!correct_choices.Contains(option))
             {
-                option = int.Parse(Console.ReadLine());
+                option = Convert.ToInt16(Console.ReadLine());
                 //May break due it doesn't checks if the string is int, it just converts
                 //So if you have something better, let me know.
             }
@@ -198,7 +202,7 @@ namespace ModernAppliances
             Console.WriteLine("0 - Any");
             Console.WriteLine("1 - Residential");
             Console.WriteLine("2 - Commercial");
-            Console.WriteLine($"Enter grade:\n    ");
+            Console.Write($"Enter grade:\n    ");
 
             string userInput = Console.ReadLine();
             string grade;
