@@ -68,8 +68,13 @@ namespace ModernAppliances
                         foundAppliance.Add(appliance);
                     }
                 }
-                Console.WriteLine("Matching Appliances:");
-                DisplayAppliancesFromList(foundAppliance, foundAppliance.Count());
+                if (foundAppliance.Count > 0)
+                {
+                    Console.WriteLine("Matching Appliances:");
+                    DisplayAppliancesFromList(foundAppliance, foundAppliance.Count());
+                }
+                else { DisplayAppliancesFromList(foundAppliance, foundAppliance.Count()); }
+                
             }
         }
         public override void DisplayRefrigerators()
