@@ -87,6 +87,7 @@ namespace ModernAppliances
                     foundAppliance.Add(appliance);
                 }
             }
+                Console.WriteLine("Matching Appliances:");
                 DisplayAppliancesFromList(foundAppliance, foundAppliance.Count());
     
         }
