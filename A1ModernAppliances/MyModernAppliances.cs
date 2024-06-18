@@ -231,15 +231,15 @@ namespace ModernAppliances
             {
                 if (appliance is Microwave microwave)
                 {
-                    if (userInput == "K" && microwave.RoomTypeDisplay == "Kitchen")
+                    if ((userInput == "K" || userInput == "k") && microwave.RoomTypeDisplay == "Kitchen")
                     {
                         found.Add(appliance);
                     }
-                    else if (userInput == "W" && microwave.RoomTypeDisplay == "Work Site")
+                    else if ((userInput == "W" || userInput == "w") && microwave.RoomTypeDisplay == "Work Site")
                     {
                         found.Add(appliance);
                     }
-                    else if (userInput == "A")
+                    else if (userInput == "A" || userInput == "a")
                     {
                         found.Add(appliance);
                     }
