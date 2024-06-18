@@ -426,7 +426,6 @@ namespace ModernAppliances
             // Get user input as string and assign to variable
             int numAppliancesInput = Convert.ToInt32(Console.ReadLine());
 
-            // Check if the number of elements requested is more than the original list count
             if (numAppliancesInput > Appliances.Count || numAppliancesInput == 0)
             {
                 Console.WriteLine("Invalid option.");
@@ -435,25 +434,19 @@ namespace ModernAppliances
             {
 
 
-                // Create a random number generator
                 Random random = new Random();
 
                 List<Appliance> copyAppliance = new List<Appliance>(Appliances);
 
-                // Shuffle the original list using Fisher-Yates shuffle algorithm
                 for (int i = copyAppliance.Count - 1; i > 0; i--)
                 {
                     int j = random.Next(i + 1);
-                    // Swap elements
                     Appliance temp = copyAppliance[i];
                     copyAppliance[i] = copyAppliance[j];
                     copyAppliance[j] = temp;
                 }
 
-                // Take the first 'numberOfElements' from the shuffled list
-
-
-                // Print the random list
+                
 
                 // Display found appliances (up to max. number inputted)
                 DisplayAppliancesFromList(copyAppliance, numAppliancesInput);
