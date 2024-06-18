@@ -378,6 +378,7 @@ namespace ModernAppliances
                 option = int.Parse(Console.ReadLine());
                 //May break due it doesn't checks if the string is int, it just converts
                 //So if you have something better, let me know.
+                count += 1;
             }
             var sound_rating = "";
             switch (option)
