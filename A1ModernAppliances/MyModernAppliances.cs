@@ -167,20 +167,6 @@ namespace ModernAppliances
 
             // Get user input as string and assign to variable
 
-            // Convert user input from string to int and store as number of doors variable.
-
-            // Create list to hold found Appliance objects
-
-            // Iterate/loop through Appliances
-            // Test that current appliance is a refrigerator
-            // Down cast Appliance to Refrigerator
-            // Refrigerator refrigerator = (Refrigerator) appliance;
-
-            // Test user entered 0 or refrigerator doors equals what user entered.
-            // Add current appliance in list to found list
-
-            // Display found appliances
-            // DisplayAppliancesFromList(found, 0);
         }
 
         /// <summary>
@@ -235,20 +221,9 @@ namespace ModernAppliances
         /// </summary>
         public override void DisplayMicrowaves()
         {
-            // Write "Possible options:"
-
-            // Write "0 - Any"
-            // Write "1 - Kitchen"
-            // Write "2 - Work site"
-
-            // Write "Enter room type:"
-
             Console.Write("Room where the microwave will be installed: K (kitchen) or W (work site):\n    ");
 
             string userInput = Console.ReadLine();
-            // Get user input as string and assign to variable
-
-            // Create character variable that holds room type
 
             if (userInput == "1")
             {
@@ -266,19 +241,9 @@ namespace ModernAppliances
             {
                 Console.WriteLine("Invalid option.");
             }
-            // Test input is "0"
-            // Assign 'A' to room type variable
-            // Test input is "1"
-            // Assign 'K' to room type variable
-            // Test input is "2"
-            // Assign 'W' to room type variable
-            // Otherwise (input is something else)
-            // Write "Invalid option."
-            // Return to calling method
-            // return;
+            
 
             List<Appliance> found = new List<Appliance>();
-            // Create variable that holds list of 'found' appliances
 
             foreach (Appliance appliance in Appliances)
             {
@@ -304,16 +269,6 @@ namespace ModernAppliances
                 Console.WriteLine("Matching microwaves:");
                 DisplayAppliancesFromList(found, 0);
             }
-
-            // Loop through Appliances
-            // Test current appliance is Microwave
-            // Down cast Appliance to Microwave
-
-            // Test room type equals 'A' or microwave room type
-            // Add current appliance in list to found list
-
-            // Display found appliances
-            // DisplayAppliancesFromList(found, 0);
         }
 
         /// <summary>
@@ -347,7 +302,8 @@ namespace ModernAppliances
                 Console.WriteLine("Matching dishwashers:");
                 DisplayAppliancesFromList(dishwashers_list, dishwashers_list.Count());
             }
-            else { Console.WriteLine("Invalid input."); return; }
+            else { Console.WriteLine("Invalid input"); return; }
+           
             
             // Write "Possible options:"
 
