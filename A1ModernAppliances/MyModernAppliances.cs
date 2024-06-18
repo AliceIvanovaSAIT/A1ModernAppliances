@@ -118,7 +118,7 @@ namespace ModernAppliances
                               $"2 - Double Doors\n" +
                               $"3 - Three Doors\n" +
                               $"4 - Four Doors\n" +
-                              $"Enter Number of doors:\n");
+                              $"Enter Number of doors:\n    ");
             var option = 1;
             List<int> correct_choices = new List<int>(); 
             correct_choices.Add(0);
