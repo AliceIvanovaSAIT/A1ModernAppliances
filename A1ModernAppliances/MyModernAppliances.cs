@@ -98,56 +98,19 @@ namespace ModernAppliances
             };
 
             bool isNumber = int.TryParse(Console.ReadLine(), out int option);
-            bool isDoorless = false;
 
             if (isNumber && correct_choices.Contains(option))
             {
-                if (option == 0)
-                {
-                    Console.WriteLine("Is your refrigerator doorless? Y/N");
-                    var doorless_option = Console.ReadLine();
-
-                    if (doorless_option != null && doorless_option.ToLower() == "y")
-                    {
-                        isDoorless = true;
-                    }
-
-                    else 
-                    { 
-                        isDoorless = false; 
-                    }
-                }
 
                 List<Appliance> refrigerator_list = new List<Appliance>();
 
                 foreach (var appliance_object in Appliances)
                 {
-                    if (appliance_object is Refrigerator refrigerator)
+                    if (appliance_object is Refrigerator refrigerator && option == refrigerator.Doors)
                     {
-                        if (option == 0)
-                        {
-                            if (isDoorless)
-                            {
-                                if (option == refrigerator.Doors) 
-                                { 
-                                    refrigerator_list.Add(refrigerator); 
-                                }
-                            }
-                            else
-                            {
-                                refrigerator_list.Add(refrigerator);
-                            }
-                        } // For doorless Fridges
-                        else
-                        {
-                            if (option == refrigerator.Doors) 
-                            { 
-                                refrigerator_list.Add(refrigerator); 
-                            }
-                        }
+                        refrigerator_list.Add(refrigerator); 
                     }
                 }
-
                 Console.WriteLine("Matching refrigerators:");
                 DisplayAppliancesFromList(refrigerator_list, refrigerator_list.Count());
             }
@@ -267,36 +230,22 @@ namespace ModernAppliances
                 "qt",
                 "qr",
                 "qu",
-                "m",
-                "any"
+                "m"
             };
 
             string userInput = Console.ReadLine();
 
             if (userInput != null && correct_choices.Contains(userInput.ToLower()))
             {
-                MyModernAppliances appliances_list = new MyModernAppliances();
                 List<Appliance> dishwashers_list = new List<Appliance>();
 
-                foreach (var appliance_object in appliances_list.Appliances)
+                foreach (var appliance_object in Appliances)
                 {
-                    if (appliance_object is Dishwasher dishwasher)
+                    if (appliance_object is Dishwasher dishwasher && userInput == dishwasher.SoundRating.ToLower())
                     {
-                        if (userInput == "Any") 
-                        { 
-                            dishwashers_list.Add(dishwasher); 
-                        }
-                        else 
-                        { 
-                            if (userInput == dishwasher.SoundRating)
-                            { 
-                                dishwashers_list.Add(dishwasher); 
-                            }
-                        }
-
+                        dishwashers_list.Add(dishwasher); 
                     }
                 }
-
                 Console.WriteLine("Matching dishwashers:");
                 DisplayAppliancesFromList(dishwashers_list, dishwashers_list.Count());
             }
